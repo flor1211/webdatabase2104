@@ -21,10 +21,18 @@
 
         $sql= "INSERT INTO dbauth(username, password) VALUES ($username, $password)";
 
-        mysqli_query($conn, $sql);
+        try {
+            mysqli_query($conn, $sql);
+            echo "OK";
+        }   
+        catch(mysqli_sql_exception) {
+            echo "eme";
+        }
+       
+        mysqli_close($conn);
     }
 
-    mysqli_close($conn);
+
     
 
 
